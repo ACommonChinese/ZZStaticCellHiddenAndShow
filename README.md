@@ -7,7 +7,7 @@
 
 ## 想法
 
-把表格上所有的cell捕捉到，并对应相应的数据结构，隐藏和显示时对表格的数据层做处理。思路流程请参见 [这里](./图示/home.html)
+把表格上所有的cell捕捉到，并对应相应的数据结构，隐藏和显示时对表格的数据层做处理。思路流程请参见 [这里](./Info/index.html)
 
 ## 使用方法
 把文件夹UITableViewController+ZZStaticCellHiddenShow托入项目，并在需要使用的地方导入头文件
