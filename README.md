@@ -20,20 +20,24 @@
 
 ```
 
-**详情可参见Demo, 参数animated如果置为NO, 则显示和隐藏cell无动画**
-![](./images/1.png)
+**详情可参见Demo, 参数animated如果置为NO, 则显示和隐藏cell无动画**  
+
+<img src="./images/1.png" width="320" height="568">
 
 ## 思路流程
 
 把表格上所有的cell捕捉到，并对应相应的数据结构，隐藏和显示时对表格的数据层做处理。图示:
 
 ![](./images/2.png)
-![](./images/3.png)
-![](./images/4.png)
+<img src="./images/3.png" width="250" height="500"><img src="./images/4.png" width="290" height="500">
 
-注：ZZDataTable代表的是表格数据，ZZDataSection代表的是每个分区的数据，ZZDataRow代表每个cell，即每行的数据，在ZZDataRow中hidden表示当前行是否隐藏，height表示行的高度，previous和next分别表示它的上一个行和下一行（使用双向链表的形式），之所以有previous和next, 主要是因为一个重要的属性：indexPath, 每次执行插入和删除操作都需要更新每行（即每个ZZDataRow对象）所对应的indexPath，因为如果需要动画，就需要调用tableView的两个方法：
+注：ZZDataTable代表的是表格数据，ZZDataSection代表的是每个分区的数据，ZZDataRow代表每个cell，即每行的数据，在ZZDataRow中hidden表示当前行是否隐藏，height表示行的高度，previous和next分别表示它的上一个行和下一行（使用双向链表的形式），之所以有previous和next, 主要是因为一个重要的属性：indexPath, 每次执行插入和删除操作都需要更新每行（即每个ZZDataRow对象）所对应的indexPath，因为如果需要动画，就需要调用tableView的两个方法： 
+
+```
 - insertRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation;
 - (void)deleteRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
+```
+
 由于这两个api需要传入确切的indexPaths，所以每次执行插入和删除都要更新，这就需要记录每行最原始的位置，所以采用双向链表的形式，从而记录和更新每行的indexPath
 
 
