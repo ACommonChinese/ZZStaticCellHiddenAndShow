@@ -80,17 +80,18 @@ LAZY_LOAD(NSMutableArray, insertRows)
     for (NSInteger i = 0; i < self.rows.count; i++) {
         ZZDataRow *row = self.rows[i];
         NSInteger previousIndex = i - 1;
-        NSInteger nextIndex     = i + 1;
+        // NSInteger nextIndex     = i + 1;
         if (previousIndex < 0) { // 第一个
             row.previous = nil;
         } else {
             row.previous = self.rows[previousIndex];
         }
+        /**
         if (nextIndex > self.rows.count - 1) { // 最后一个
             row.next = nil;
         } else {
             row.next = self.rows[nextIndex];
-        }
+        }*/
     }
 }
 

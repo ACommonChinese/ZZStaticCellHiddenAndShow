@@ -27,7 +27,7 @@
 @property (nonatomic, weak) UITableViewCell *cell;
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic, weak) ZZDataRow *previous;
-@property (nonatomic, weak) ZZDataRow *next;
+// @property (nonatomic, weak) ZZDataRow *next;
 @property (nonatomic) CGFloat height;
 - (void)resetIndexPath;
 @end
